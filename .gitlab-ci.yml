@@ -1,0 +1,38 @@
+stages:
+   - build
+   - deploy
+
+# build stage
+build_app:
+   image: node:alpine
+   stage: build
+   only:
+      - develop
+   script:
+      - npm install
+      - npm run build
+   cache:
+     paths:
+       - node_modules/
+   artifacts:
+      paths:
+         # build folder
+         - dist/
+      expire_in: 1 hour
+
+# production stage
+production:
+   image: python:alpine
+   stage: deploy
+   only:
+      - develop
+   script:
+      - pip install awscli
+      - aws configure set aws_access_key_id "$ACCESS_KEY_ID"
+      - aws configure set aws_secret_access_key "$SECRET_ACCESS_KEY"
+      - aws configure set default.region "$REGION"
+      - aws configure list
+      - aws --endpoint-url=https://storage.yandexcloud.net s3 rm s3://test.strategywinners.leadersmanagement.com --recursive
+      - aws --endpoint-url=https://storage.yandexcloud.net s3 sync ./dist/ s3://test.strategywinners.leadersmanagement.com
+      - echo "end"
+

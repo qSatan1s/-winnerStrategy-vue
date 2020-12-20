@@ -1,0 +1,88 @@
+.show-for {
+    // Only 
+  &-desktop-only {
+    display: none;
+    @media screen and (min-width: $SmDesktopWidth) and (max-width: $DesktopWidth) {
+      display: block;
+    }
+  }
+  &-smdesktop-only {
+    display: none;
+    @media screen and (min-width: $TableWidth) and (max-width: $SmDesktopWidth) {
+      display: block;
+    }
+  }
+  &-tablet-only {
+    display: none;
+    @media screen and (min-width: $TableWidth) and (max-width: $PhoneWidth) {
+      display: block;
+    }        
+  }
+  &-phone-only {
+    display: none;
+    @media screen and (min-width: $SmPhoneWidth) and (max-width: $PhoneWidth) {
+      display: block;
+    }        
+  }
+  // show 
+  &-desktop {
+    display: none;
+    @media screen and (min-width: $SmDesktopWidth)  {
+      display: block;
+    }
+  }
+  &-smdesktop {
+    @media screen and (min-width: $TableWidth)  {
+      display: block;
+    }
+  }
+  &-tablet {
+    display: none;
+    @media screen and (min-width: $PhoneWidth)  {
+      display: block;
+    }
+  }
+  &-phone {
+    @media screen and (min-width: $SmPhoneWidth)  {
+      display: block;
+    }        
+  }
+}
+
+.hide-for {
+  &-desktop {
+    @media screen and (min-width: $DesktopWidth)  {
+      display: none;
+    }
+  }
+  &-smdesktop {
+    @media screen and (max-width: $DesktopWidth) {
+      display: none;
+    }
+  }
+  &-tablet {
+    @media screen and (max-width: $SmDesktopWidth) {
+      display: none;
+    }
+  }
+  &-smdesktop-only {
+    @media screen and (min-width: $SmDesktopWidth) and (max-width: $DesktopWidth) {
+      display: none;
+    }
+  }
+  &-tablet-only {
+    @media screen and (min-width: $TableWidth) and (max-width: $SmDesktopWidth) {
+      display: none;
+    }
+  }
+  &-phone-only {
+    @media screen and (max-width: $PhoneWidth) {
+      display: none;
+    }        
+  }
+}
+.order {
+  &_1 {
+    order:-1;
+  }
+}

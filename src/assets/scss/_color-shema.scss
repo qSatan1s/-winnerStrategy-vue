@@ -1,0 +1,87 @@
+// .cl--blue {
+//     color: $blue;
+// }
+// .bg--blue {
+//     background-color: $blue;
+// }
+
+.cl {
+  &_white {
+    color: $white;
+  }
+  &_black {
+    color: $black;
+  }
+  &_blue{
+    color: $blue
+  }
+  &_orange-2 {
+    color: $orange-2;
+  }
+  &_orange-4 {
+    color: $orange-4;
+  }
+  &_yellow-white-sait {
+    color: $yellow-white-sait;
+  }
+  &_purple-1 {
+    color: $purple-1;
+  }
+  &_white-purple-1 {
+    color: $white-purple-1;
+  }
+  &_white-purple-2 {
+    color: $white-purple-2;
+  }
+  &_background {
+    color: $background;
+  }
+}
+
+.bg {
+  &_white {
+    background-color: $white;
+  }
+  &_orange-2 {
+    background-color: $orange-2;
+  }
+  &_orange-3 {
+    background-color: $orange-3;
+  }
+  &_orange-4 {
+    background-color: $orange-4;
+  }
+  &_yellow-white-sait {
+    background-color: $yellow-white-sait;
+  }
+  &_gradient-blue {
+    background: $gradient-blue;
+  }
+  &_purple-1 {
+    background-color: $purple-1;
+  }
+  &_white-purple-1 {
+    background-color: $white-purple-1;
+  }
+  &_white-purple-2 {
+    background-color: $white-purple-2;
+  }
+  &_background {
+    background-color: $background;
+  }
+  &_button-slider-bg {
+    background: $button-slider-bg;
+  }
+  &_golden-yellow {
+    background-color: $golden-yellow;
+  }
+  &_blue {
+    background-color: $blue;
+  }
+}
+.cl--orange {
+  color: $orange;
+}
+.cl--violet {
+  color: $violet;
+}

@@ -1,0 +1,80 @@
+body {
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  a {
+    color: inherit;
+  }
+  font-weight: bold;
+}
+
+h1,
+.h1 {
+  font-size: 72px;
+}
+
+h2,
+.h2 {
+  font-size: 36px;
+  line-height: 1.194em;
+}
+
+h3,
+.h3 {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 27px;
+}
+
+h4,
+.h4 {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+}
+
+h5,
+.h5 {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+h6,
+.h6 {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 12px;
+}
+
+button,
+.button {  
+  transition: all 0.2s ease-in-out;
+}
+
+p {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+}
+
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+@include mq($SmPhoneWidth, max) {
+  h2 {
+    font-size: 18px;
+    line-height: 1.28em;
+  }
+}

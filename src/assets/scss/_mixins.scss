@@ -1,0 +1,99 @@
+@mixin mq($width, $type: min) {
+  @if $type == max {
+  	$width: $width - 1px;
+  }
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+@mixin mq-between($minWidth, $maxWidth) {
+  @media only screen and (min-width: $minWidth) and (max-width: $maxWidth - 1) {
+    @content;
+  }
+}
+
+@mixin afs($First, $Second, $Third, $Zero: $First) {
+  @include mq($TableWidth, max) {
+    font-size: $Second;
+  }
+  @include mq($PhoneWidth, max) {
+    font-size: $Third;
+  }
+  @include mq($TableWidth, min) {
+    font-size: $First;
+  }
+  @include mq($SmDesktopWidth, min) {
+    font-size: $Zero;
+  }
+}
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+@mixin positionCenter($positionType: absolute) {
+  position: $positionType;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin positionCenterX($positionType: absolute) {
+  position: $positionType;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin positionCenterY($positionType: absolute) {
+  position: $positionType;
+  top: 50%;
+  left: auto;
+  transform: translateY(-50%);
+}
+@mixin bg(
+  $path,
+  $size: cover,
+  $repeat: no-repeat,
+  $position: 50% 50%,
+  $fixed: scroll
+) {
+  background-image: $path;
+  background-attachment: $fixed;
+  background-position: $position;
+  background-size: $size;
+  background-repeat: $repeat;
+}
+@mixin dialog-wingow($width, $height: auto, $breakepoint: $TableWidth) {
+  @include positionCenter(fixed);
+  @include size($width, $height);
+  @media screen and (max-width: $breakepoint) {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+@mixin br($btr, $btl: $btr, $bbr: $btr, $bbl: $btr) {
+  border-top-right-radius: $btr;
+  border-top-left-radius: $btl;
+  border-bottom-right-radius: $bbr;
+  border-bottom-left-radius: $bbl;
+}
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+@mixin grad-l($deg, $direction, $color-stops, $per1: 0%, $per2: 50%) {
+  background: linear-gradient($deg, $direction $per1, $color-stops $per2);
+}
+@mixin sep-h($w, $h, $color) {
+  display: block;
+  height: $h;
+  width: $w;
+  margin: 0 auto;
+  background-color: $color;
+}
+@function get-percent($target, $width_mockup: 1920, $part: 100%) {
+  @return ($target / $width_mockup * $part);
+}
+@function get-vw($target, $width_mockup: 1920) {
+  $vw-context: ($width_mockup * 0.01) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}
